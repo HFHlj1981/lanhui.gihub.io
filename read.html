@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个人中心 - 查看资料</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#f5f7fa;padding:16px}
+.header{background:#3478cb;color:#fff;padding:16px;border-radius:12px;text-align:center;font-size:22px;font-weight:bold;margin-bottom:20px}
+.logo-box{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.logo{width:80px;height:80px;object-fit:cover;border-radius:50%;}
+.logo-text h1{font-size:32px;color:#224488}
+.logo-text p{color:#555}
+.card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid #e8e8e8}
+.card h2{font-size:22px;color:#206b82;margin-bottom:20px}
+.form-item{margin-bottom:16px}
+.form-item label{display:block;margin-bottom:8px;color:#444;font-size:18px}
+.form-item input,.form-item textarea{width:100%;padding:14px;border:1px solid #ccc;border-radius:8px;font-size:18px;background:#efefef;color:#555}
+.btn{width:100%;padding:16px;background:#666;color:#fff;border:none;border-radius:8px;font-size:20px;margin-top:10px}
+.tip{color:#c0392b;margin-bottom:12px;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="header">澜汇个人信息官网｜个人资料查看</div>
+
+<div class="logo-box">
+    <img class="logo" src="logo.png" alt="澜汇个人信息官网">
+    <div class="logo-text">
+        <h1>澜汇个人信息官网</h1>
+        <p>— Beijiang Citizen Cloud —</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>个人信息（访客仅查看，不可编辑）</h2>
+    <p class="tip">⚠️ 只有管理员账号可以修改资料</p>
+    <div class="form-item">
+        <label>昵称</label>
+        <input type="text" id="nickname" disabled>
+    </div>
+    <div class="form-item">
+        <label>手机号</label>
+        <input type="text" id="phone" disabled>
+    </div>
+    <div class="form-item">
+        <label>个人简介</label>
+        <textarea id="desc" rows="4" disabled></textarea>
+    </div>
+    <button class="btn" onclick="window.location.href='index.html'">返回登录页</button>
+</div>
+
+<script>
+window.onload = function(){
+    // 读取管理员保存好的数据展示给访客
+    if(localStorage.getItem('nickname')){
+        document.getElementById('nickname').value = localStorage.getItem('nickname')
+    }
+    if(localStorage.getItem('phone')){
+        document.getElementById('phone').value = localStorage.getItem('phone')
+    }
+    if(localStorage.getItem('desc')){
+        document.getElementById('desc').value = localStorage.getItem('desc')
+    }
+}
+</script>
+</body>
+</html>
